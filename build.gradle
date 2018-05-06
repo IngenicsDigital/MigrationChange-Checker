@@ -6,12 +6,32 @@ buildscript {
 }
 
 plugins {
-    id 'java'
+    id 'java-library'
 }
 
-group 'io.github.poeschl.lib'
+group 'de.pixel.mcc'
 
 sourceCompatibility = 1.8
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events "skipped", "failed"
+        showStandardStreams true
+    }
+
+    reports {
+        html.enabled = true
+    }
+}
+
+jar {
+    manifest {
+        attributes('Implementation-Title': project.name,
+                'Implementation-Version': project.version)
+    }
+}
 
 repositories {
     jcenter()
@@ -19,6 +39,10 @@ repositories {
 }
 
 dependencies {
-    testCompile "junit:junit:$junit_version"
+    api 'commons-codec:commons-codec:1.11'
+
+    testCompile "org.junit.jupiter:junit-jupiter-api:$junit_version"
+    testCompile "org.junit.jupiter:junit-jupiter-params:$junit_version"
+    testCompile "org.junit.jupiter:junit-jupiter-engine:$junit_version"
     testCompile "org.assertj:assertj-core:$assertj_version"
 }
