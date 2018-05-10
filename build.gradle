@@ -8,6 +8,8 @@ buildscript {
 plugins {
     id 'java-library'
     id 'jacoco'
+    id "com.jfrog.bintray" version "1.8.0"
+    id "maven-publish"
 }
 
 group 'de.pixel.mcc'
@@ -47,6 +49,79 @@ jar {
 artifacts {
     archives sourcesJar
     archives javadocJar
+}
+
+def additionalPomInfo = {
+    licenses {
+        license {
+            name 'The Apache Software License, Version 2.0'
+            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+            distribution 'repo'
+        }
+    }
+    organization {
+        name 'Pixel GmbH'
+        url 'https://www.pixel.de/'
+    }
+    developers {
+        developer {
+            id 'poeschl'
+            name 'Markus Pöschl'
+            url 'https://poeschl.github.io/'
+        }
+    }
+    scm {
+        url "https://github.com/PixelGmbH/MigrationChange-Checker"
+    }
+}
+
+publishing {
+    publications {
+        bintrayPublication(MavenPublication) {
+            from components.java
+            artifact sourcesJar {
+                classifier "sources"
+            }
+            artifact javadocJar {
+                classifier "javadoc"
+            }
+            groupId project.group
+            artifactId project.name
+            version project.version
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('name', "$project.name")
+                root.appendNode('url', 'https://github.com/PixelGmbH/MigrationChange-Checker')
+                root.children().last() + additionalPomInfo
+            }
+        }
+    }
+}
+
+bintray {
+    user = System.getProperty('bintray.user')
+    key = System.getProperty('bintray.key')
+    publications = ['bintrayPublication']
+    publish = false //set this to true to auto-publish
+
+    pkg {
+        repo = 'maven-repro'
+        name = project.name
+        userOrg = 'PixelGmbH'
+        licenses = ['Apache-2.0']
+        issueTrackerUrl = 'https://github.com/PixelGmbH/MigrationChange-Checker/issues'
+        vcsUrl = 'https://github.com/PixelGmbH/MigrationChange-Checker.git'
+        githubRepo = 'PixelGmbH/MigrationChange-Checker'
+        version {
+            name = project.version
+            desc = "Version ${project.version}"
+            released  = new Date()
+            mavenCentralSync {
+                sync = false
+            }
+        }
+    }
+
 }
 
 repositories {
