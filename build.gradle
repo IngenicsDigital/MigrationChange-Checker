@@ -105,7 +105,7 @@ bintray {
     publish = false //set this to true to auto-publish
 
     pkg {
-        repo = 'maven-repro'
+        repo = 'maven'
         name = project.name
         userOrg = 'PixelGmbH'
         licenses = ['Apache-2.0']
