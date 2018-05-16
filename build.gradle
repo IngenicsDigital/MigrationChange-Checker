@@ -114,7 +114,7 @@ bintray {
     pkg {
         repo = 'maven'
         name = project.name
-        userOrg = 'PixelGmbH'
+        userOrg = 'pixelgmbh'
         licenses = ['Apache-2.0']
         issueTrackerUrl = 'https://github.com/PixelGmbH/MigrationChange-Checker/issues'
         vcsUrl = 'https://github.com/PixelGmbH/MigrationChange-Checker.git'
