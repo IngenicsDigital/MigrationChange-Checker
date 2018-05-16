@@ -18,11 +18,12 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
-    - ./gradlew --info --stacktrace check jacocoTestReport
+    - ./gradlew --stacktrace check jacocoTestReport
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter format-coverage build/reports/jacoco/test/jacocoTestReport.xml --input-type jacoco
+  - ./cc-test-reporter upload-coverage

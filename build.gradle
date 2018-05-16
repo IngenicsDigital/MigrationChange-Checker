@@ -39,6 +39,13 @@ test {
     }
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled true
+    }
+}
+
 jar {
     manifest {
         attributes('Implementation-Title': project.name,
