@@ -27,16 +27,11 @@ public class ExampleTest {
     @ParameterizedTest
     @MethodSource("filesProvider")
     void checkMigrations(final Path file) throws IOException {
-        //WHEN
-
-        //THEN
         changeChecker.verifyFile(file);
-
-        //VERIFY
     }
 
     private static Stream filesProvider() throws IOException {
         final Path sqlScriptsFolder = Paths.get(MIGRATION_SCRIPTS_URL);
-        return Files.walk(sqlScriptsFolder).filter(file -> !Files.isDirectory(file));
+        return Files.walk(sqlScriptsFolder).filter(file -> Files.isRegularFile(file));
     }
 }
