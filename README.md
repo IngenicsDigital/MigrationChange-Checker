@@ -15,6 +15,9 @@
       <td align="center">
         <a href="https://bintray.com/PixelGmbH/maven/MigrationChange-Checker"><img src="https://img.shields.io/bintray/v/PixelGmbH/maven/MigrationChange-Checker.svg?maxAge=3600"></a>
       </td>
+      <td align="center">
+        <a href="https://github.com/PixelGmbH/MigrationChange-Checker/blob/master/LICENCE"><img src="https://img.shields.io/github/license/PixelGmbH/MigrationChange-Checker.svg?maxAge=3600"></a>
+      </td>
     </tr>
   </tbody>
 </table>
