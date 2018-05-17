@@ -89,8 +89,8 @@ MigrationChangeChecker.setup()
 ``` 
 
 With the optional `.withHashAlgorithm(...)` the used hash mechanism can be set.
-MMC only supports `MD5` and `SHA-2` right now.
-If none is set, `SHA-2` is used.
+MMC supports `MD5`,`SHA-256` and `SHA-512` right now.
+If none is set, `SHA-256` is used.
 
 The ``.withHashPair(<filename>, <hash>)`` adds a new hash to the internal collection.
 To calculate the hash use a tool of your liking or extract the hash from the log of a failed verification.
