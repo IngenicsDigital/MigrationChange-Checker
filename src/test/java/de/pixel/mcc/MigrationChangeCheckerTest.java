@@ -21,7 +21,7 @@ public class MigrationChangeCheckerTest {
         final Executable test = () ->
                 MigrationChangeChecker.setup()
                         .withHashAlgorithm(HashAlgorithm.MD5)
-                        .withHashPair("drop-tables.sql", "5997f69b9cd8e91db88d2cafc1a0b7ae")
+                        .withHashPair("drop-tables.sql", "27ced4797d3267eb7eb64eacad7078f8")
                         .verifyFile(filePath);
 
         //VERIFY
