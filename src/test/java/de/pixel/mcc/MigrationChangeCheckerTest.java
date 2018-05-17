@@ -1,6 +1,5 @@
 package de.pixel.mcc;
 
-import de.pixel.mcc.internal.HashAlgorithm;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 

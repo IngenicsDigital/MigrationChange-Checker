@@ -1,6 +1,5 @@
 package de.pixel.mcc;
 
-import de.pixel.mcc.internal.HashAlgorithm;
 import de.pixel.mcc.internal.VerifyException;
 
 import java.io.IOException;
