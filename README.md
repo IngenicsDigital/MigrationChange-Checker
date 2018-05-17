@@ -93,10 +93,10 @@ MMC only supports `MD5` and `SHA-2` right now.
 If none is set, `SHA-2` is used.
 
 The ``.withHashPair(<filename>, <hash>)`` adds a new hash to the internal collection.
-To calculated the hash use a tool of your liking or extract the hash is from the log of a failed verification.
+To calculate the hash use a tool of your liking or extract the hash from the log of a failed verification.
 
-To verify a file use`` .verifyFile(<path>)``.
-It accepts a ``java.nio.file.Path`` as parameter and try to match a stored the checksum.
+To verify a file use `` .verifyFile(<path>)``.
+It accepts a ``java.nio.file.Path`` as parameter and try to match a stored checksum.
 
 ### Test example
 
