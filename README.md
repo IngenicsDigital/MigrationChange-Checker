@@ -13,7 +13,10 @@
         <a href="https://codeclimate.com/github/PixelGmbH/MigrationChange-Checker"><img src="https://img.shields.io/codeclimate/coverage/PixelGmbH/MigrationChange-Checker.svg?maxAge=3600"></a>
       </td>
       <td align="center">
-        <a href="https://bintray.com/PixelGmbH/maven/MigrationChange-Checker"><img src="https://img.shields.io/bintray/v/PixelGmbH/maven/MigrationChange-Checker.svg?maxAge=3600"></a>
+        <a href="https://github.com/PixelGmbH/MigrationChange-Checker/releases"><img src="https://img.shields.io/github/release/PixelGmbH/MigrationChange-Checker.svg?maxAge=3600"></a>
+      </td>
+      <td align="center">
+        <a href="https://bintray.com/pixelgmbh/maven/MigrationChange-Checker"><img src="https://img.shields.io/bintray/v/pixelgmbh/maven/MigrationChange-Checker.svg?maxAge=3600"></a>
       </td>
       <td align="center">
         <a href="https://github.com/PixelGmbH/MigrationChange-Checker/blob/master/LICENCE"><img src="https://img.shields.io/github/license/PixelGmbH/MigrationChange-Checker.svg?maxAge=3600"></a>
@@ -32,6 +35,9 @@ It will make tests fail early instead of breaking the deployment.
 
 MCC is available via jCenter.
 
+![Latest version](https://img.shields.io/bintray/v/pixelgmbh/maven/MigrationChange-Checker.svg?label=latest%20release&maxAge=3600)
+
+
 To use it with gradle add following into the build.gradle:
 
 ```groovy
@@ -40,7 +46,7 @@ repositories {
 }
 
 dependencies {
-    //TODO
+    testCompile 'de.pixel.mcc:MigrationChange-Checker:1.0.0'
 }
 
 ```
@@ -59,7 +65,11 @@ To use it in a maven project add this in the pom.xml:
     
     <dependencies> 
         <dependency>
-            <!--TODO-->
+          <groupId>de.pixel.mcc</groupId>
+          <artifactId>MigrationChange-Checker</artifactId>
+          <version>1.0.0</version>
+          <type>pom</type>
+          <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
