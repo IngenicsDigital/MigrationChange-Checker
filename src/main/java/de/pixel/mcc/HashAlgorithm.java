@@ -1,4 +1,4 @@
-package de.pixel.mcc.internal;
+package de.pixel.mcc;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -10,7 +10,7 @@ public enum HashAlgorithm {
     MD5 {
         @Override
         public String getHexHash(final InputStream input) throws IOException {
-            return DigestUtils.md2Hex(input);
+            return DigestUtils.md5Hex(input);
         }
 
         @Override

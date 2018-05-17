@@ -1,6 +1,5 @@
 package de.pixel.mcc;
 
-import de.pixel.mcc.internal.HashAlgorithm;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
