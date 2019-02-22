@@ -25,6 +25,8 @@
   </tbody>
 </table>
 
+PIXEL Day
+
 Database migration scripts break a deployment in no time, that is common knowledge.
 Changed by accident or through the IDE the verification at application startup stops it.
 
