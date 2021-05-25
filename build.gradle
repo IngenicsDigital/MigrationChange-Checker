@@ -8,6 +8,8 @@ plugins {
     id 'java-library'
     id 'jacoco'
     id "maven-publish"
+    id 'signing'
+    id 'io.github.gradle-nexus.publish-plugin' version "1.1.0"
 }
 
 group 'de.pixel.mcc'
@@ -56,77 +58,73 @@ artifacts {
     archives javadocJar
 }
 
-def additionalPomInfo = {
-    licenses {
-        license {
-            name 'The Apache Software License, Version 2.0'
-            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-            distribution 'repo'
+signing {
+    def signingKey = System.getenv('SIGN_KEY')
+    def signingPassword = System.getenv('SIGN_PASSWORD')
+    useInMemoryPgpKeys(signingKey, signingPassword)
+    sign publishing.publications
+}
+
+publishing {
+    publications {
+        mmc(MavenPublication) {
+            from components.java
+
+            groupId project.group
+            artifactId project.name
+            version project.version
+
+            artifact sourcesJar
+            artifact javadocJar
+
+            pom {
+                name = project.name
+                description = 'A Pixelflut interface for Java and Kotlin written in Kotlin.'
+                url = 'https://github.com/PixelGmbH/MigrationChange-Checker'
+
+                licenses {
+                    license {
+                        name = 'Apache-2.0 Licence'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution = 'repo'
+                    }
+                }
+
+                organization {
+                    name = 'Pixel GmbH'
+                    url = 'https://www.pixel.de/'
+                }
+
+                developers {
+                    developer {
+                        id = 'Poeschl'
+                        name = 'Markus Pöschl'
+                        url = 'https://poeschl.xyz/'
+                    }
+                }
+
+                scm {
+                    url = "https://github.com/PixelGmbH/MigrationChange-Checker"
+                }
+            }
+
+            versionMapping {
+                allVariants {
+                    fromResolutionResult()
+                }
+            }
         }
-    }
-    organization {
-        name 'Pixel GmbH'
-        url 'https://www.pixel.de/'
-    }
-    developers {
-        developer {
-            id 'poeschl'
-            name 'Markus Pöschl'
-            url 'https://poeschl.github.io/'
-        }
-    }
-    scm {
-        url "https://github.com/PixelGmbH/MigrationChange-Checker"
     }
 }
 
-//publishing {
-//    publications {
-//        bintrayPublication(MavenPublication) {
-//            from components.java
-//            artifact sourcesJar {
-//                classifier "sources"
-//            }
-//            artifact javadocJar {
-//                classifier "javadoc"
-//            }
-//            groupId project.group
-//            artifactId project.name
-//            version project.version
-//            pom.withXml {
-//                def root = asNode()
-//                root.appendNode('name', "$project.name")
-//                root.appendNode('url', 'https://github.com/PixelGmbH/MigrationChange-Checker')
-//                root.children().last() + additionalPomInfo
-//            }
-//        }
-//    }
-//}
-//
-//bintray {
-//    user = System.getProperty('bintray.user')
-//    key = System.getProperty('bintray.key')
-//    publications = ['bintrayPublication']
-//    publish = false //set this to true to auto-publish
-//
-//    pkg {
-//        repo = 'maven'
-//        name = project.name
-//        userOrg = 'pixelgmbh'
-//        licenses = ['Apache-2.0']
-//        issueTrackerUrl = 'https://github.com/PixelGmbH/MigrationChange-Checker/issues'
-//        vcsUrl = 'https://github.com/PixelGmbH/MigrationChange-Checker.git'
-//        githubRepo = 'PixelGmbH/MigrationChange-Checker'
-//        version {
-//            name = project.version
-//            desc = "Version ${project.version}"
-//            released  = new Date()
-//            mavenCentralSync {
-//                sync = false
-//            }
-//        }
-//    }
-//}
+nexusPublishing {
+    repositories {
+        sonatype {
+            username = System.getenv('OSSRH_USER')
+            password = System.getenv('OSSRH_PASSWORD')
+        }
+    }
+}
 
 repositories {
     mavenCentral()
