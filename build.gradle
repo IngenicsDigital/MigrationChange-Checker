@@ -79,7 +79,7 @@ publishing {
 
             pom {
                 name = project.name
-                description = 'A Pixelflut interface for Java and Kotlin written in Kotlin.'
+                description = 'A testing framework to check for changes in database migration files.'
                 url = 'https://github.com/PixelGmbH/MigrationChange-Checker'
 
                 licenses {
