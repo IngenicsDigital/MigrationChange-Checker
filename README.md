@@ -5,7 +5,7 @@
     <tr>
       <td align="center">
         <a href="https://github.com/PixelGmbH/MigrationChange-Checker/actions">
-        <img src="https://img.shields.io/github/workflow/status/PixelGmbH/MigrationChange-Checker/master%20check"></a>
+        <img src="https://img.shields.io/github/workflow/status/PixelGmbH/MigrationChange-Checker/Master%20check"></a>
       </td>
       <td align="center">
         <a href="https://github.com/PixelGmbH/MigrationChange-Checker/releases"><img src="https://img.shields.io/github/release/PixelGmbH/MigrationChange-Checker.svg?maxAge=3600"></a>
