@@ -8,11 +8,7 @@
         <img src="https://img.shields.io/github/workflow/status/PixelGmbH/MigrationChange-Checker/Master%20check"></a>
       </td>
       <td align="center">
-        <a href="https://github.com/PixelGmbH/MigrationChange-Checker/releases"><img src="https://img.shields.io/github/release/PixelGmbH/MigrationChange-Checker.svg?maxAge=3600"></a>
-      </td>
-      <td align="center">
-        <a href="https://search.maven.org/artifact/de.pixel/MigrationChange-Checker">
-        <img src="https://img.shields.io/maven-central/v/de.pixel/MigrationChange-Checker"></a>
+        <a href="https://github.com/PixelGmbH/MigrationChange-Checker/releases"><img src="https://img.shields.io/github/release/PixelGmbH/MigrationChange-Checker.svg"></a>
       </td>
       <td align="center">
         <a href="https://github.com/PixelGmbH/MigrationChange-Checker/blob/master/LICENCE"><img src="https://img.shields.io/github/license/PixelGmbH/MigrationChange-Checker.svg?maxAge=3600"></a>
@@ -30,7 +26,8 @@ deployment.
 ## Installation
 
 MCC is available via Maven Central.
-[![Latest version](https://img.shields.io/maven-central/v/de.pixel/MigrationChange-Checker)](https://search.maven.org/artifact/de.pixel/MigrationChange-Checker)
+
+[![Latest version](https://img.shields.io/maven-central/v/de.pixel.mcc/MigrationChange-Checker)](https://search.maven.org/artifact/de.pixel.mcc/MigrationChange-Checker)
 
 To use it with gradle add following into the build.gradle:
 
